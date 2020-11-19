@@ -1,4 +1,5 @@
 module.exports.Users = require('./users');
 module.exports.DatosConexion = require('./datosConexion');
-module.exports.logsUsers = require('./logsUsuario');
-module.exports.egUsers = require('./egresosUsuario');
+module.exports.Materias= require('./materias');
+module.exports.Notas = require('./notas');
+module.exports.Inscripciones = require('./inscripciones');

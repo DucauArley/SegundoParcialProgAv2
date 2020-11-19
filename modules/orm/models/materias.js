@@ -2,26 +2,32 @@ const sequelize = require('../db');
 const { DataTypes } = require('sequelize');
 const { validate } = require('../db');
 
-const logsUsers = sequelize.define('logsUsuarios',
+const Materias = sequelize.define('materias',
 {
-    id:{
+    idMateria:
+    {   
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    legajo:{
+    nombre:{
+        type: DataTypes.STRING,
+    },
+    cuatrimestre:{
         type: DataTypes.INTEGER,
         validate:
         {
             min: 1,
-            max: 1000
+            max: 4
         }
+    },
+    cupos:{
+        type: DataTypes.INTEGER,
     }
 },
 {
-    timestamps: true
 });
 
-logsUsers.sync({force: false});//Si esta en true te sobreescribe la tabla
+Materias.sync({force: false});//Si esta en true te sobreescribe la tabla
 
-module.exports = logsUsers;
+module.exports = Materias;

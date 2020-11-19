@@ -4,14 +4,19 @@ const { validate } = require('../db');
 
 const Users = sequelize.define('usuarios',
 {
-    legajo:{
-        type: DataTypes.INTEGER,
+    email:{
+        type: DataTypes.STRING,
         primaryKey: true,
+        unique: true,
         validate:
         {
             min: 1,
             max: 1000
         }
+    },
+    nombre:{
+        type: DataTypes.STRING,
+        unique: true,
     },
     clave:{
         type: DataTypes.STRING
@@ -20,7 +25,7 @@ const Users = sequelize.define('usuarios',
         type: DataTypes.STRING,
         isOK(value)
         {
-            if(value != "user" && value != "admin")
+            if(value != "alumno" && value != "admin" && value != "profesor")
             {
                 throw new Error("Solamente valores validos");
             }
@@ -28,7 +33,6 @@ const Users = sequelize.define('usuarios',
     }
 },
 {
-    timestamps: true
 });
 
 Users.sync({force: false});//Si esta en true te sobreescribe la tabla

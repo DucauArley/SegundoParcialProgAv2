@@ -2,7 +2,7 @@ const sequelize = require('../db');
 const { DataTypes } = require('sequelize');
 const { validate } = require('../db');
 
-const egUsers = sequelize.define('egresosUsuarios',
+const Notas = sequelize.define('notas',
 {
     id:{
         type: DataTypes.INTEGER,
@@ -19,9 +19,8 @@ const egUsers = sequelize.define('egresosUsuarios',
     }
 },
 {
-    timestamps: true
 });
 
-egUsers.sync({force: false});//Si esta en true te sobreescribe la tabla
+Notas.sync({force: false});//Si esta en true te sobreescribe la tabla
 
-module.exports = egUsers;
+module.exports = Notas;
